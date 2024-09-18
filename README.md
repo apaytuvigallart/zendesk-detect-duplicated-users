@@ -9,7 +9,7 @@ Once you open the Ticket, the Custom Application will display the following data
 - `Requester email address`: Requester's email address.
 - `Result`: The Result will display all possible duplicated users, if any.
 
-## How does it work?
+## How does it work?
 
 Once you open the Ticket, the Custom Application will detect if the Requester has a duplicated User. It'll look for Users who have the same name but with a different email address. To achieve this, I'm using the [ZAF Client API](https://developer.zendesk.com/api-reference/apps/apps-core-api/client_api/). By calling [`client.request()`](https://developer.zendesk.com/api-reference/apps/apps-core-api/client_api/#clientrequestoptions), we can make HTTP request to:
 - [`/api/v2/users/search`](https://developer.zendesk.com/api-reference/ticketing/users/users/#search-users): Search users that meet the search criteria.
