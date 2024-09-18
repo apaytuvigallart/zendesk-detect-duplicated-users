@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <div id="content"></div>
+  <footer>
+    <a href="mailto:fake_email@test.com?subject=Bug%20Report" target="_blank">Report bugs</a> <!-- please change email address -->
+  </footer>
+  <script id="requester-template" type="text/x-handlebars-template">
+    <table>
+      <tr>
+        <td><strong>Requester ID:</strong></td>
+        <td class="requester-data">{{requester-id}}</td>
+      </tr>
+      <tr>
+        <td><strong>Requester Name:</strong></td>
+        <td class="requester-data">{{requester-name}}</td>
+      </tr>
+      <tr>
+        <td><strong>Requester email address:</strong></td>
+        <td class="requester-data">{{requester-email}}</td>
+      </tr>
+      <tr>
+        <td><strong>Result:</strong></td>
+        <td class="requester-data">{{result}}</td>
+      </tr>
+      {{#if is-positive}}
+      <tr>
+        <th colspan="2" style="border: 1px solid black; padding: 8px;">User</th>
+      </tr>
+      {{#each users-to-merge}}
+      <tr>
+        <td colspan="2" style="border: 1px solid black; padding: 8px;">{{name}}, <br> {{email}}</td>
+      </tr>
+      {{/each}}
+      <tr>
+        <td>
+          <button id="merge-button" class="btn btn-primary">Merge</button>
+        </td>
+      </tr>
+      {{else}}
+      {{/if}}
+    </table>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.3.3/dist/handlebars.min.js"></script>
+  <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
