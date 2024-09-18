@@ -1,8 +1,8 @@
 {
   "app": {
-    "name": "Zen Tunes",
-    "short_description": "Play the famous zen tunes in your help desk.",
-    "long_description": "Play the famous zen tunes in your help desk and \n listen to the beats it has to offer.",
+    "name": "Zendesk - Detect Duplicated Users",
+    "short_description": "Zendesk Support Custom Application that can detect duplicated users",
+    "long_description": "Zendesk Support Custom Application that can detect duplicated users. All possible duplicated users will be merged to the Ticket's Requester.",
     "installation_instructions": "Simply click install."
   }
 }
