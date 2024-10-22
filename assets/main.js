@@ -9,7 +9,7 @@
     // pass both data and client objects to the processTicketData function
     client.get(['ticket.requester.id', 'ticket.requester.name', 'ticket.requester.email'])
         .then((data) => processTicketData(data, client))
-        .catch(handleError);  
+        .catch((error) => handleError(error, client));  
 
 })();
 
@@ -39,7 +39,7 @@ async function processTicketData(data, client) {
         showInfo(requesterId, requesterName, requesterEmail, checkDuplicated, result, client);
     }
     catch (error) {
-        handleError(error);
+        handleError(error, client);
     }
 }
 
@@ -98,7 +98,7 @@ async function handleMergeButtonClick(requesterId, checkDuplicated, client) {
         client.invoke('notify', `Users have been successfully merged to ${requesterId}.`, 'notice'); // send a notification that users have been merged
     } 
     catch (error) {
-        handleError(error);
+        handleError(error, client);
     }
 }
 
@@ -108,6 +108,7 @@ function delay(ms) {
 }
 
 // handle errors
-function handleError(error) {
+function handleError(error, client) {
     console.error('An error occurred:', error);
+    client.invoke('notify',`An error occurred: ${error}`, 'error')
 }
