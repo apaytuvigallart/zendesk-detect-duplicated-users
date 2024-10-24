@@ -25,7 +25,7 @@ async function processTicketData(data, client) {
     
         // send an API request to Zendesk Search user. It'll display all users that have the same name than the requester and excludes any user that has the requester's email or email is empty
         const checkDuplicated = await client.request({
-            url: `/api/v2/users/search?query=name:"${requesterName}" -email:${requesterEmail} -email:none`, // using template literals (``) to allow multi-string and variables 
+            url: `/api/v2/users/search?query=name:"${requesterName}" -email:${requesterEmail} email:none -phone:none`, // using template literals (``) to allow multi-string and variables 
             type: 'GET',
             contentType: 'application/json'
         });
